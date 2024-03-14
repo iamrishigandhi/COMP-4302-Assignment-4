@@ -42,4 +42,6 @@ Basic interface elements are provided to control different light sources:
 
 # Total Grade Aimed For: 100%
 
-Please read Installation.md[https://github.com/iamrishigandhi/COMP-4302-Assignment-4/blob/main/Installation.md] for instructions if you have trouble running the code
+Please read [Installation.md](https://github.com/iamrishigandhi/COMP-4302-Assignment-4/blob/main/Installation.md) for instructions if you have trouble running the code.
+
+Here are the [References & Sources](https://github.com/iamrishigandhi/COMP-4302-Assignment-4/blob/main/References%20%26%20Sources.md)
