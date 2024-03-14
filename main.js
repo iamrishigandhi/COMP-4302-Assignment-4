@@ -38,7 +38,7 @@ lightLeft.position.copy(lightLeftPos);
 lightRight.position.copy(lightRightPos);
 
 // Moving point light source
-const pointLight = new THREE.PointLight(0xffffff, 1, 10); // White point light
+const pointLight = new THREE.PointLight(0xffffff, 10, 10); // White point light
 scene.add(pointLight);
 
 // Create a 3D model to represent the point light
@@ -93,10 +93,6 @@ lightVisibilityFolder
 lightVisibilityFolder
     .add(pointLight, "visible")
     .name("Point Light")
-    .setValue(true);
-lightVisibilityFolder
-    .add(pointLightMesh, "visible")
-    .name("Point Light Mesh")
     .setValue(true);
 lightVisibilityFolder
     .add(pointLightMesh, "visible")
@@ -177,4 +173,5 @@ function animate() {
     controls.update();
     animatePointLight();
 }
+
 animate();
