@@ -1,3 +1,4 @@
+// Import necessary modules from Three.js library
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GUI } from "dat.gui";
@@ -5,10 +6,10 @@ import { GUI } from "dat.gui";
 // Set up scene
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
-    75,
-    window.innerWidth / window.innerHeight,
-    0.1,
-    1000
+    75, // Field of view
+    window.innerWidth / window.innerHeight, // Aspect ratio
+    0.1, // Near clipping plane
+    1000 // Far clipping plane
 );
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -21,9 +22,9 @@ const cube = new THREE.Mesh(geometry, material);
 scene.add(cube);
 
 // Add lighting
-const lightTop = new THREE.DirectionalLight(0xffffff, 1000);
-const lightLeft = new THREE.DirectionalLight(0x00ffff, 1000);
-const lightRight = new THREE.DirectionalLight(0xff00ff, 1000);
+const lightTop = new THREE.DirectionalLight(0xffffff, 1000); // White directional light from the top
+const lightLeft = new THREE.DirectionalLight(0x00ffff, 1000); // Cyan directional light from the left
+const lightRight = new THREE.DirectionalLight(0xff00ff, 1000); // Magenta directional light from the right
 scene.add(lightTop);
 scene.add(lightLeft);
 scene.add(lightRight);
@@ -37,7 +38,7 @@ lightLeft.position.copy(lightLeftPos);
 lightRight.position.copy(lightRightPos);
 
 // Moving point light source
-const pointLight = new THREE.PointLight(0xffffff, 1, 10);
+const pointLight = new THREE.PointLight(0xffffff, 1, 10); // White point light
 scene.add(pointLight);
 
 // Create a 3D model to represent the point light
@@ -81,10 +82,26 @@ document.addEventListener("keydown", function (event) {
 const gui = new GUI();
 const lightVisibilityFolder = gui.addFolder("Light Visibility");
 lightVisibilityFolder.add(lightTop, "visible").name("Top Light").setValue(true);
-lightVisibilityFolder.add(lightLeft, "visible").name("Left Light").setValue(true);
-lightVisibilityFolder.add(lightRight, "visible").name("Right Light").setValue(true);
-lightVisibilityFolder.add(pointLight, "visible").name("Point Light").setValue(true);
-lightVisibilityFolder.add(pointLightMesh, "visible").name("Point Light Mesh").setValue(true);
+lightVisibilityFolder
+    .add(lightLeft, "visible")
+    .name("Left Light")
+    .setValue(true);
+lightVisibilityFolder
+    .add(lightRight, "visible")
+    .name("Right Light")
+    .setValue(true);
+lightVisibilityFolder
+    .add(pointLight, "visible")
+    .name("Point Light")
+    .setValue(true);
+lightVisibilityFolder
+    .add(pointLightMesh, "visible")
+    .name("Point Light Mesh")
+    .setValue(true);
+lightVisibilityFolder
+    .add(pointLightMesh, "visible")
+    .name("Point Light Mesh")
+    .setValue(true);
 
 // Set up ambient light
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.3); // Default intensity: 0.3
