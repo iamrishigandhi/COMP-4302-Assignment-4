@@ -37,11 +37,11 @@ lightLeft.position.copy(lightLeftPos);
 lightRight.position.copy(lightRightPos);
 
 // Moving point light source
-const pointLight = new THREE.PointLight(0xffffff, 1, 1000);
+const pointLight = new THREE.PointLight(0xffffff, 1, 10);
 scene.add(pointLight);
 
 // Create a 3D model to represent the point light
-const pointLightGeometry = new THREE.SphereGeometry(0.2);
+const pointLightGeometry = new THREE.SphereGeometry(0.1);
 const pointLightMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
 const pointLightMesh = new THREE.Mesh(pointLightGeometry, pointLightMaterial);
 scene.add(pointLightMesh);
@@ -49,7 +49,7 @@ scene.add(pointLightMesh);
 // Animate the point light position
 let time = 0;
 function animatePointLight() {
-    const amplitude = 2;
+    const amplitude = 0.1;
     const frequency = 0.5;
     const displacement = new THREE.Vector3(
         0,
@@ -61,7 +61,7 @@ function animatePointLight() {
     time += 0.1;
 }
 
-// Set up controls for light positioning and toggling
+// Set up controls for light visibility toggling
 document.addEventListener("keydown", function (event) {
     if (event.key === "t" || event.key === "T") {
         lightTop.visible = !lightTop.visible;
@@ -69,15 +69,22 @@ document.addEventListener("keydown", function (event) {
         lightLeft.visible = !lightLeft.visible;
     } else if (event.key === "r" || event.key === "R") {
         lightRight.visible = !lightRight.visible;
+    } else if (event.key === "a" || event.key === "A") {
+        ambientLight.visible = !ambientLight.visible;
+    } else if (event.key === "p" || event.key === "P") {
+        pointLight.visible = !pointLight.visible;
+        pointLightMesh.visible = !pointLightMesh.visible;
     }
 });
 
-// Set up GUI for light controls
+// GUI for light visibility toggling
 const gui = new GUI();
-const lightControls = gui.addFolder("Light Controls");
-lightControls.add(lightTop, "visible").name("Top Light").setValue(true);
-lightControls.add(lightLeft, "visible").name("Left Light").setValue(true);
-lightControls.add(lightRight, "visible").name("Right Light").setValue(true);
+const lightVisibilityFolder = gui.addFolder("Light Visibility");
+lightVisibilityFolder.add(lightTop, "visible").name("Top Light").setValue(true);
+lightVisibilityFolder.add(lightLeft, "visible").name("Left Light").setValue(true);
+lightVisibilityFolder.add(lightRight, "visible").name("Right Light").setValue(true);
+lightVisibilityFolder.add(pointLight, "visible").name("Point Light").setValue(true);
+lightVisibilityFolder.add(pointLightMesh, "visible").name("Point Light Mesh").setValue(true);
 
 // Set up ambient light
 const ambientLight = new THREE.AmbientLight(0xffffff, 0.3); // Default intensity: 0.3
