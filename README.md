@@ -44,7 +44,7 @@ Basic interface elements are provided to control different light sources:
 how to achieve one of the features of your assignment in a tutorial style. The winners of the
 competition (up to three participants will be chosen) will earn 15% extra points, will be featured in
 class, and will earn bragging rights.
-- Here is the link to the [Youtube Video]() for my submission.
+- Here is the link to the [Youtube Video](https://youtu.be/pHPtbbM1ewc) for my submission.
 
 
 # Total Grade Aimed For: 100%
