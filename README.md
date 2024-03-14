@@ -39,6 +39,13 @@ Basic interface elements are provided to control different light sources:
 -   Keyboard keys (`t`, `l`, `r`, `a`, `p`) toggle visibility of various light sources.
 -   GUI buttons allow for visual toggling of light sources and adjusting ambient light intensity.
 
+### 9. Video competition
+- Produce a video that is meant to be distributed to the public, where you explain
+how to achieve one of the features of your assignment in a tutorial style. The winners of the
+competition (up to three participants will be chosen) will earn 15% extra points, will be featured in
+class, and will earn bragging rights.
+- Here is the link to the [Youtube Video]() for my submission.
+
 
 # Total Grade Aimed For: 100%
 
